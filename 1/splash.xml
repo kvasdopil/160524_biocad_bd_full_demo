@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Splash screen file, saved 6/23/2016 5:59:37 PM using CourseLab 1300908 -->
+<splash>
+<settings>
+<showsplash>yes</showsplash>
+</settings>
+<data>
+<![CDATA[<img src="images/splash.png" style="position:absolute;left:0px;top:0px;width:1000px;height:700px;"/><div style="position: absolute; left: 397px; top: 544px; width: 245px; height: 75px;"><DIV onclick="StartModule();return false;" onmouseover="$('#start_o').show(); $('#start_n').hide();" onmouseout="$('#start_o').hide(); $('#start_n').show();" id=start style="CURSOR: pointer"><IMG id=start_n style="POSITION: absolute" src="images/start_n.png"> <IMG id=start_o style="POSITION: absolute; DISPLAY: none" src="images/start_o.png"></DIV></div>]]>
+</data>
+</splash>

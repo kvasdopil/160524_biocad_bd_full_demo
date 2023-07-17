@@ -1,0 +1,813 @@
+/* Ïðÿ÷åò âñå ÷òî íàõîäèòñÿ çà ãðàíèöåé êàäðà*/
+#boardFrame{
+	overflow: hidden;
+}
+/* --- */
+
+/* Z-èíäåêñû îáúåêòîâ ñ ìàñòåðà*/
+#bottom, #top, #modulename, #slidename, #contents, #next, #prev, #position_c, #position_t, #glossary, #wrong,#custom_glossary_btn{
+	z-index:1001 !important;
+}
+
+#contents_window, #glossary_object_window_clone, #custom_glossary{
+	z-index:14000 !important;
+}
+/* --- */
+
+/* Ïîäêëþ÷åíèå íåñòàíäàðòíîãî øðèôòà*/
+@font-face {
+  font-family: 'GothamPro';
+  src: url('GothamPro.eot');
+  src: url('GothamPro.eot?#iefix') format('embedded-opentype'),
+       url('GothamPro.woff2') format('woff2'),
+       url('GothamPro.woff') format('woff'),
+       url('GothamPro.ttf') format('truetype'),
+       url('GothamPro.svg#GothamPro') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+/* font-family: "FlowRegular"; */
+@font-face {
+    font-family: "FlowRegular";
+    src: url("FlowRegular.eot");
+    src: url("FlowRegular.eot?#iefix")format("embedded-opentype"),
+    url("FlowRegular.woff") format("woff"),
+    url("FlowRegular.ttf") format("truetype");
+    font-style: normal;
+    font-weight: normal;
+}
+/* font-family: "FlowBold"; */
+@font-face {
+    font-family: "FlowBold";
+    src: url("FlowBold.eot");
+    src: url("FlowBold.eot?#iefix")format("embedded-opentype"),
+    url("FlowBold.woff") format("woff"),
+    url("FlowBold.ttf") format("truetype");
+    font-style: normal;
+    font-weight: normal;
+}
+/* font-family: "ALS Schlange sans"; */
+@font-face {
+    font-family: "Schlange";
+    src: url("als_schlange_sans_bold.eot");
+    src: url("als_schlange_sans_bold.eot?#iefix")format("embedded-opentype"),
+    url("als_schlange_sans_bold.woff") format("woff"),
+    url("als_schlange_sans_bold.otf") format("truetype");
+    font-style: normal;
+    font-weight: normal;
+}
+/* --- */
+
+/* Ñòèëü ñ÷åò÷èêà ñëàéäîâ*/
+#position_c td, #position_t td{
+	width: auto !important;
+}
+#position_c td{
+	text-align: right !important;
+}
+#position_c_position_current, #position_t_position_total{
+	font-family: 'GothamPro', 'Trebuchet MS' !important;
+}
+#position_c_position_current{
+	font-size: 24px !important;	
+	font-weight: normal !important;	
+	color:#000000 !important;
+}
+#position_t_position_total{
+	font-size: 12px !important;	
+	font-weight: normal !important;	
+	color:#666666 !important;
+}
+#position_c_position_total, #position_t_position_current{
+	font-size: 0px !important;
+	visibility: hidden;
+}
+/* --- */
+
+/* Ñòèëü èìåíè ñëàéäà*/
+#slidename_SlideName {	
+	font-size: 18px !important;	
+	font-family: 'GothamPro', 'Trebuchet MS' !important;
+	font-weight: bold !important;	
+	color:#000007 !important;
+}
+/* --- */
+
+/* Ñòèëü îêíà ñîäåðæàíèÿ*/
+.p_contents_header {
+	font-size: 30px; 
+	font-family: 'GothamPro', 'Trebuchet MS'; 
+	font-weight: bold; 
+	color:#ffffff; 
+	text-align:left;
+	position: absolute;
+	top: 45px;
+	left: 75px;
+}
+.p_contents_div {
+	height: 72px; 
+	width: 850px;
+}
+body:first-of-type .p_contents_div  {
+	width: 873px;
+}
+.p_contents_num {
+	font-size: 16px; 
+	font-family: 'GothamPro', 'Trebuchet MS'; 
+	font-weight: normal; 
+	color:#ffffff;
+	width: 110px;
+	float: left;
+	text-align: center;
+	line-height: 72px;
+	background: url(emp_pxl.png);
+}
+.p_cn_v {
+	color:#666666;
+}
+.p_cn_c {
+	color:#666666;
+	background: url(contents_current_num.png) top left no-repeat;
+}
+.p_contents_line {
+	font-size: 16px; 
+	font-family: 'GothamPro', 'Trebuchet MS'; 
+	font-weight: normal; 
+	color:#666666;
+	width: 738px;
+	float: right;
+	text-align: left;
+	line-height: 72px;
+	padding-left: 23px;
+	background: url(emp_pxl.png);
+}
+.p_cl_v {
+	color:#666666;
+	background: url(contents_visited.png) top left no-repeat;
+}
+.p_cl_c {
+	color:#39b54a;
+	/*background: url(contents_current.png) top left no-repeat;*/
+}
+/* --- */
+
+/* Ñòèëè òåêñòîâ*/
+.preloader_per{
+	font-size: 50px; 
+	font-family: 'GothamPro', 'Trebuchet MS'; 
+	font-weight: normal; 
+	color:#fefefe; 
+}
+
+.p_modulename {
+	font-size: 22px; 
+	font-family: 'GothamPro', 'Trebuchet MS'; 
+	font-weight: normal; 
+	color:#4ea614; 
+	text-align:left;
+}
+.baloon_txt{
+	font-size: 14px; 
+	font-family: 'GothamPro', 'Trebuchet MS'; 
+	font-weight: normal; 
+	color:#4e4e4e; 
+}
+.baloon_txt_white{
+	font-size: 14px; 
+	font-family: 'GothamPro', 'Trebuchet MS'; 
+	font-weight: normal; 
+	color:#ffffff; 
+}
+.txt_basic{
+	font-size: 14px; 
+	font-family: 'GothamPro', 'Trebuchet MS'; 
+	font-weight: normal; 
+	color:#4e4e4e; 
+	line-height: 26px;
+}
+.txt_book{
+	font-size: 17px; 
+	font-family: 'FlowRegular', 'Trebuchet MS'; 
+	font-weight: normal; 
+	color:#59564c; 
+	/* font-style: italic; */
+}
+.txt_hint{
+	font-size: 14px; 
+	font-family: 'GothamPro', 'Trebuchet MS'; 
+	font-weight: normal; 
+	color:#000000; 
+	font-style: italic;
+}
+.txt_hint_white{
+	font-size: 14px; 
+	font-family: 'GothamPro', 'Trebuchet MS'; 
+	font-weight: normal; 
+	color:#ffffff; 
+	font-style: italic;
+}
+.txt_white{
+	font-size: 16px; 
+	font-family: 'GothamPro', 'Trebuchet MS'; 
+	font-weight: normal; 
+	color:#ffffff !important;
+	line-height: 26px;
+}
+.txt_black{
+	font-size: 16px; 
+	font-family: 'GothamPro', 'Trebuchet MS'; 
+	font-weight: normal; 
+	color:#000000 !important;
+	line-height: 26px;
+}
+.txt_purple{
+	font-size: 14px; 
+	font-family: 'GothamPro', 'Trebuchet MS'; 
+	font-weight: normal; 
+	color:#3a2657 !important;
+}
+.h1{
+	/*color: #000000;*/
+	font-size: 24px;
+	font-weight: bold;
+}
+
+.h2{
+	color: #000000;
+	font-size: 20px;
+}
+.h3{
+	/*color: #000000;*/
+	font-size: 14px;
+}
+.h22{
+	color: #000000;
+	font-size: 18px;
+}
+.h25{
+	color: #000000;
+	font-size: 16px;
+}
+.schlange{
+	color: #green;
+	font-family: 'Schlange', 'Comic Sans'; 
+	font-size: 20px;
+}
+.lh11{
+	line-height: 1.1 !important;
+}
+
+
+/* Âåðñòêà îáúåêòà ãëîññàðèÿ*/
+.glossary_window {
+	font-size: 30px; 
+	font-family: 'GothamPro', 'Trebuchet MS'; 
+	font-weight: bold; 
+	color:#ffffff; 
+	text-align:left;	
+	padding-top:41px !important;	
+	padding-left:102px !important;
+	position: relative !important; 
+	top:-8px !important;
+	left:-12px !important;
+}
+.glossary_description {
+	font-size: 14px; 
+	font-family: 'GothamPro', 'Trebuchet MS'; 
+	font-weight: normal; 
+	color:#4e4e4e; 
+	text-align:left;
+}
+#glossary_object_window_clone {
+	background: url(glossary_window.png) top left no-repeat !important;	
+	background-position: top left !important;
+}
+#glossary_terms{
+	width: 261px !important;
+	height:476px !important;
+	overflow-x: hidden !important;
+	margin-left: 63px !important;
+	margin-top: 8px !important;
+	/* background-color: red !important; */
+}
+body:first-of-type #glossary_terms {
+	margin-top: 13px !important;
+}
+#glossary_terms div[id^="glossary_term"]{
+	font-weight: normal !important;
+	background-color: transparent !important;
+	height: 70px !important;
+	line-height: 64px !important;
+	padding-left: 30px !important;
+}
+#glossary_results{
+	background-color: transparent !important;
+	margin-left: 0px !important;
+	margin-right: 0px !important;
+	margin-top: 10px !important;
+	width: 597px !important;
+	overflow-x: hidden !important;
+	height:452px !important;
+	padding-left: 40px !important;
+	padding-top: 20px !important;
+	/* background-color:green !important; */
+}
+body:first-of-type #glossary_results {
+	margin-top: 12px !important;
+	width: 547px !important;
+	height:440px !important;
+}
+#glossary_object_window_clone td{
+	background-color: transparent !important; 
+	font-size: 14px !important;
+}
+#glossary_result_td{
+	border: 0px !important;
+	font-size: 14px !important; 
+	font-family: 'GothamPro', 'Trebuchet MS' !important; 
+	font-weight: normal !important; 
+	color:#000000 !important; 
+	text-align:left !important;
+}
+#glossary_letters_all{
+	border: 0px !important;
+	background: url(emp_pxl.png) top left no-repeat !important;	
+}
+#glossary_letters_td td{
+	padding-top:11px !important;
+	font-size: 14px !important; 
+	color:#ffffff !important; 
+}
+#glossary_window_close_img{	
+	position: relative !important; 
+	top:41px !important; 
+	right:93px !important;
+}
+
+#glossary_letters_td  #glossary_letters_all[curstate="sel"]{
+/* 	font-size: 48px !important; 
+	color:#red !important;  */
+}
+/* --- */
+
+/* Ñòèëü ññûëîê*/
+a {
+	color: #000000;	
+	text-decoration: none; 
+	font-family: 'Arial'; 
+	color:#000000;
+}
+/* --- */
+
+/* Êíîïêè*/
+.btns_n{
+	width: 85px;
+	height: 47px;
+	background: url(btns_n.png) top left no-repeat;
+	font-size: 14px; 
+	font-family: 'GothamPro', 'Trebuchet MS'; 
+	font-weight: bold; 
+	color:#000000; 
+	text-align:center;
+	line-height: 47px;
+	cursor:pointer;
+}
+
+.btns_o{
+	background: url(btns_o.png) top left no-repeat;
+}
+
+
+.btnm_n{
+	width: 129px;
+	height: 47px;
+	background: url(btnm_n.png) top left no-repeat;
+	font-size: 14px; 
+	font-family: 'GothamPro', 'Trebuchet MS'; 
+	font-weight: bold; 
+	color:#ffffff; 
+	text-align:center;
+	line-height: 47px;
+	cursor:pointer;
+}
+
+.btnm_o{
+	background: url(btnm_o.png) top left no-repeat;
+}
+
+.btnb_n{
+	width: 177px;
+	height: 47px;
+	background: url(btnb_n.png) top left no-repeat;
+	font-size: 18px; 
+	font-family: 'GothamPro', 'Trebuchet MS'; 
+	font-weight: regular; 
+	color:#000000; 
+	text-align:center;
+	line-height: 47px;
+	cursor:pointer;
+}
+
+.btnb_o{
+	background: url(btnb_o.png) top left no-repeat;
+}
+
+.btnp_n{
+	width: 200px;
+	height: 50px;
+	background: url(btnp_n.png) top left no-repeat;
+	font-size: 18px; 
+	font-family: 'GothamPro', 'Trebuchet MS'; 
+	font-weight: regular; 
+	color:#000000; 
+	text-align:center;
+	line-height: 50px;
+	cursor:pointer;
+}
+
+.btnp_o{
+	background: url(btnp_o.png) top left no-repeat;
+}
+
+.btnw_n{
+	width: 257px;
+	height: 47px;
+	background: url(btnw_n.png) top left no-repeat;
+	font-size: 18px; 
+	font-family: 'GothamPro', 'Trebuchet MS'; 
+	font-weight: regular; 
+	color:#000000; 
+	text-align:center;
+	line-height: 47px;
+	cursor:pointer;
+}
+
+.btnw_o{
+	background: url(btnw_o.png) top left no-repeat;
+}
+
+/* 
+------------------------------------------------------------------------------------------------------------------------
+1. BASIC STYLE  
+------------------------------------------------------------------------------------------------------------------------
+*/
+
+	.mCustomScrollbar{ -ms-touch-action: pinch-zoom; touch-action: pinch-zoom; /* direct pointer events to js */ }
+	.mCustomScrollbar.mCS_no_scrollbar, .mCustomScrollbar.mCS_touch_action{ -ms-touch-action: auto; touch-action: auto; }
+	
+	.mCustomScrollBox{ /* contains plugin's markup */
+		position: relative;
+		overflow: hidden;
+		height: 100%;
+		max-width: 100%;
+		outline: none;
+		direction: ltr;
+	}
+
+	.mCSB_container{ /* contains the original content */
+		/*overflow: hidden;*/
+		width: auto;
+		height: auto;
+	}
+
+/* 
+------------------------------------------------------------------------------------------------------------------------
+2. VERTICAL SCROLLBAR 
+y-axis
+------------------------------------------------------------------------------------------------------------------------
+*/
+
+	.mCSB_inside > .mCSB_container{ margin-right: 30px; }
+
+	.mCSB_container.mCS_no_scrollbar_y.mCS_y_hidden{ margin-right: 0; } /* non-visible scrollbar */
+	
+	.mCS-dir-rtl > .mCSB_inside > .mCSB_container{ /* RTL direction/left-side scrollbar */
+		margin-right: 0;
+		margin-left: 30px;
+	}
+	
+	.mCS-dir-rtl > .mCSB_inside > .mCSB_container.mCS_no_scrollbar_y.mCS_y_hidden{ margin-left: 0; } /* RTL direction/left-side scrollbar */
+
+	.mCSB_scrollTools{ /* contains scrollbar markup (draggable element, dragger rail, buttons etc.) */
+		position: absolute;
+		width: 30px;
+		height: auto;
+		left: auto;
+		top: 0;
+		right: 0;
+		bottom: 0;
+	}
+
+	.mCSB_outside + .mCSB_scrollTools{ right: -26px; } /* scrollbar position: outside */
+	
+	.mCS-dir-rtl > .mCSB_inside > .mCSB_scrollTools, 
+	.mCS-dir-rtl > .mCSB_outside + .mCSB_scrollTools{ /* RTL direction/left-side scrollbar */
+		right: auto;
+		left: 0;
+	}
+	
+	.mCS-dir-rtl > .mCSB_outside + .mCSB_scrollTools{ left: -26px; } /* RTL direction/left-side scrollbar (scrollbar position: outside) */
+
+	.mCSB_scrollTools .mCSB_draggerContainer{ /* contains the draggable element and dragger rail markup */
+		position: absolute;
+		top: 0;
+		left: 0;
+		bottom: 0;
+		right: 0; 
+		max-height: 99%;
+		height: auto;
+	}
+
+	.mCSB_scrollTools a + .mCSB_draggerContainer{ margin: 20px 0; }
+
+	.mCSB_scrollTools .mCSB_draggerRail{
+		width: 0px;
+		height: 100%;
+		margin: 0 auto;
+		-webkit-border-radius: 16px; -moz-border-radius: 16px; border-radius: 16px;
+	}
+
+	.mCSB_scrollTools .mCSB_dragger{ /* the draggable element */
+		cursor: pointer;
+		width: 100%;
+		height: 150px; /* minimum dragger height */
+		z-index: 1;
+	}
+
+	.mCSB_scrollTools .mCSB_dragger .mCSB_dragger_bar{ /* the dragger element */
+		position: relative;
+		width: 10px;
+		height: 100%;
+		margin: 0 auto;
+		border: 1px solid #dadada;
+		-webkit-border-radius: 16px; -moz-border-radius: 16px; border-radius: 16px;
+		text-align: center;
+			-webkit-box-shadow: 0px 3px 5px 0px rgba(0,0,0,0.1);
+			-moz-box-shadow: 0px 3px 5px 0px rgba(0,0,0,0.1);
+		box-shadow: 0px 3px 5px 0px rgba(0,0,0,0.1);
+	}
+	
+	.mCSB_scrollTools_vertical.mCSB_scrollTools_onDrag_expand .mCSB_dragger.mCSB_dragger_onDrag_expanded .mCSB_dragger_bar, 
+	.mCSB_scrollTools_vertical.mCSB_scrollTools_onDrag_expand .mCSB_draggerContainer:hover .mCSB_dragger .mCSB_dragger_bar{ width: 12px; /* auto-expanded scrollbar */ }
+	
+	.mCSB_scrollTools_vertical.mCSB_scrollTools_onDrag_expand .mCSB_dragger.mCSB_dragger_onDrag_expanded + .mCSB_draggerRail, 
+	.mCSB_scrollTools_vertical.mCSB_scrollTools_onDrag_expand .mCSB_draggerContainer:hover .mCSB_draggerRail{ width: 8px; /* auto-expanded scrollbar */ }
+
+	.mCSB_scrollTools .mCSB_buttonUp,
+	.mCSB_scrollTools .mCSB_buttonDown{
+		display: block;
+		position: absolute;
+		height: 20px;
+		width: 100%;
+		overflow: hidden;
+		margin: 0 auto;
+		cursor: pointer;
+	}
+
+	.mCSB_scrollTools .mCSB_buttonDown{ bottom: 0; }
+
+/*------------------------------------------------------------------------------------------------------------------------
+5. TRANSITIONS  
+------------------------------------------------------------------------------------------------------------------------
+*/
+
+	.mCSB_scrollTools, 
+	.mCSB_scrollTools .mCSB_dragger .mCSB_dragger_bar, 
+	.mCSB_scrollTools .mCSB_buttonUp,
+	.mCSB_scrollTools .mCSB_buttonDown,
+	.mCSB_scrollTools .mCSB_buttonLeft,
+	.mCSB_scrollTools .mCSB_buttonRight{
+		-webkit-transition: opacity .2s ease-in-out, background-color .2s ease-in-out;
+		-moz-transition: opacity .2s ease-in-out, background-color .2s ease-in-out;
+		-o-transition: opacity .2s ease-in-out, background-color .2s ease-in-out;
+		transition: opacity .2s ease-in-out, background-color .2s ease-in-out;
+	}
+	
+	.mCSB_scrollTools_vertical.mCSB_scrollTools_onDrag_expand .mCSB_dragger_bar, /* auto-expanded scrollbar */
+	.mCSB_scrollTools_vertical.mCSB_scrollTools_onDrag_expand .mCSB_draggerRail, 
+	.mCSB_scrollTools_horizontal.mCSB_scrollTools_onDrag_expand .mCSB_dragger_bar, 
+	.mCSB_scrollTools_horizontal.mCSB_scrollTools_onDrag_expand .mCSB_draggerRail{
+		-webkit-transition: width .2s ease-out .2s, height .2s ease-out .2s, 
+					margin-left .2s ease-out .2s, margin-right .2s ease-out .2s, 
+					margin-top .2s ease-out .2s, margin-bottom .2s ease-out .2s,
+					opacity .2s ease-in-out, background-color .2s ease-in-out; 
+		-moz-transition: width .2s ease-out .2s, height .2s ease-out .2s, 
+					margin-left .2s ease-out .2s, margin-right .2s ease-out .2s, 
+					margin-top .2s ease-out .2s, margin-bottom .2s ease-out .2s,
+					opacity .2s ease-in-out, background-color .2s ease-in-out; 
+		-o-transition: width .2s ease-out .2s, height .2s ease-out .2s, 
+					margin-left .2s ease-out .2s, margin-right .2s ease-out .2s, 
+					margin-top .2s ease-out .2s, margin-bottom .2s ease-out .2s,
+					opacity .2s ease-in-out, background-color .2s ease-in-out; 
+		transition: width .2s ease-out .2s, height .2s ease-out .2s, 
+					margin-left .2s ease-out .2s, margin-right .2s ease-out .2s, 
+					margin-top .2s ease-out .2s, margin-bottom .2s ease-out .2s,
+					opacity .2s ease-in-out, background-color .2s ease-in-out; 
+	}
+
+	/* 
+	----------------------------------------
+	6.1 THEMES 
+	----------------------------------------
+	*/
+	
+	/* default theme ("light") */
+
+	.mCSB_scrollTools{ opacity: 1; filter: "alpha(opacity=100)"; -ms-filter: "alpha(opacity=100)"; }
+	
+	.mCS-autoHide > .mCustomScrollBox > .mCSB_scrollTools,
+	.mCS-autoHide > .mCustomScrollBox ~ .mCSB_scrollTools{ opacity: 0; filter: "alpha(opacity=0)"; -ms-filter: "alpha(opacity=0)"; }
+	
+	.mCustomScrollbar > .mCustomScrollBox > .mCSB_scrollTools.mCSB_scrollTools_onDrag,
+	.mCustomScrollbar > .mCustomScrollBox ~ .mCSB_scrollTools.mCSB_scrollTools_onDrag,
+	.mCustomScrollBox:hover > .mCSB_scrollTools,
+	.mCustomScrollBox:hover ~ .mCSB_scrollTools,
+	.mCS-autoHide:hover > .mCustomScrollBox > .mCSB_scrollTools,
+	.mCS-autoHide:hover > .mCustomScrollBox ~ .mCSB_scrollTools{ opacity: 1; filter: "alpha(opacity=100)"; -ms-filter: "alpha(opacity=100)"; }
+
+	.mCSB_scrollTools .mCSB_draggerRail{
+		background-color: #000;  
+	}
+
+	.mCSB_scrollTools .mCSB_dragger .mCSB_dragger_bar{
+		background-color: #fff;  
+	}
+
+	.mCSB_scrollTools .mCSB_dragger:hover .mCSB_dragger_bar{
+		background-color: #fff;
+	}
+	.mCSB_scrollTools .mCSB_dragger:active .mCSB_dragger_bar,
+	.mCSB_scrollTools .mCSB_dragger.mCSB_dragger_onDrag .mCSB_dragger_bar{
+		background-color: #fff;
+	}
+
+	.mCSB_scrollTools .mCSB_buttonUp,
+	.mCSB_scrollTools .mCSB_buttonDown,
+	.mCSB_scrollTools .mCSB_buttonLeft,
+	.mCSB_scrollTools .mCSB_buttonRight{
+		background-image: url(mCSB_buttons.png); /* css sprites */
+		background-repeat: no-repeat;
+		opacity: 0.4; filter: "alpha(opacity=40)"; -ms-filter: "alpha(opacity=40)"; 
+	}
+
+	.mCSB_scrollTools .mCSB_buttonUp{
+		background-position: 0 0;
+		/* 
+		sprites locations 
+		light: 0 0, -16px 0, -32px 0, -48px 0, 0 -72px, -16px -72px, -32px -72px
+		dark: -80px 0, -96px 0, -112px 0, -128px 0, -80px -72px, -96px -72px, -112px -72px
+		*/
+	}
+
+	.mCSB_scrollTools .mCSB_buttonDown{
+		background-position: 0 -20px;
+		/* 
+		sprites locations
+		light: 0 -20px, -16px -20px, -32px -20px, -48px -20px, 0 -92px, -16px -92px, -32px -92px
+		dark: -80px -20px, -96px -20px, -112px -20px, -128px -20px, -80px -92px, -96px -92px, -112 -92px
+		*/
+	}
+
+	.mCSB_scrollTools .mCSB_buttonLeft{
+		background-position: 0 -40px;
+		/* 
+		sprites locations 
+		light: 0 -40px, -20px -40px, -40px -40px, -60px -40px, 0 -112px, -20px -112px, -40px -112px
+		dark: -80px -40px, -100px -40px, -120px -40px, -140px -40px, -80px -112px, -100px -112px, -120px -112px
+		*/
+	}
+
+	.mCSB_scrollTools .mCSB_buttonRight{
+		background-position: 0 -56px;
+		/* 
+		sprites locations 
+		light: 0 -56px, -20px -56px, -40px -56px, -60px -56px, 0 -128px, -20px -128px, -40px -128px
+		dark: -80px -56px, -100px -56px, -120px -56px, -140px -56px, -80px -128px, -100px -128px, -120px -128px
+		*/
+	}
+
+	.mCSB_scrollTools .mCSB_buttonUp:hover,
+	.mCSB_scrollTools .mCSB_buttonDown:hover,
+	.mCSB_scrollTools .mCSB_buttonLeft:hover,
+	.mCSB_scrollTools .mCSB_buttonRight:hover{ opacity: 1; filter: "alpha(opacity=100)"; -ms-filter: "alpha(opacity=100)"; }
+
+	.mCSB_scrollTools .mCSB_buttonUp:active,
+	.mCSB_scrollTools .mCSB_buttonDown:active,
+	.mCSB_scrollTools .mCSB_buttonLeft:active,
+	.mCSB_scrollTools .mCSB_buttonRight:active{ opacity: 1; filter: "alpha(opacity=100)"; -ms-filter: "alpha(opacity=100)"; }
+	
+
+/* Кастомный глоссарий*/
+.custom_glossary_wrap{
+	position: relative;
+	width: 100%;
+	height: 100%;
+	background: url(glossary_window.png) no-repeat;	
+	background-position: top left;
+}
+.custom_glossary{
+	position: absolute;
+	left: 50%;
+	top: 152px;
+	margin-left: -425px;
+	width: 865px;
+	height: 476px;
+	font-size: 14px; 
+	font-family: 'GothamPro', 'Trebuchet MS'; 
+	font-weight: normal; 
+	color:#000000; 
+		-webkit-border-radius: 10px;
+		-moz-border-radius: 10px;
+	border-radius: 10px;
+	overflow: hidden;
+}
+.glossary_words{
+	float: left;
+	width: 260px;
+}
+.glossary_words ul{
+	list-style: none;
+	margin: 0;
+	padding: 0;
+}
+.glossary_words ul li{
+	line-height: 70px;
+	height: 70px;
+	width: 245px;
+	padding-left: 30px;
+}
+.glossary_words ul li span{
+	vertical-align: middle;
+	line-height: 1;
+}
+.last_word{
+	display: none;
+}
+.glossary_dsc{
+	float: left;
+	width: 570px;
+	height: 446px;
+	margin: 30px 0 0 35px;
+}
+.glossary_dsc .glossary_dsc_value{
+	padding-right: 30px;
+	color: #4e4e4e;
+	cursor: default !important;
+}
+.glossary_dscn.hide{
+	display: none;
+}
+
+.word_active{
+	color:#39b54a; 
+	/*background-image: url(glossary_current.png);*/
+	background-position: top left;
+}
+
+.custom_glossary_top{
+	width: 845px;
+	position: absolute;
+	left: 75px;
+	top: 50px;
+	font-size: 30px; 
+	font-family: 'GothamPro', 'Trebuchet MS'; 
+	font-weight: bold; 
+	color:#ffffff; 
+	line-height: 1;
+}
+.custom_glossary-close{
+	position: absolute;
+	top: 5px;
+	right: 0px;
+	width: 24px;
+	height: 24px;
+	background-image: url(glossary_window_close.png);
+	background-repeat: no-repeat;
+	cursor: pointer;
+}
+
+.glossary_word_letter{
+	width: 790px;
+	position: absolute;
+	left: 105px;
+	top: 100px;
+	font-size: 16px; 
+	font-family: 'GothamPro', 'Trebuchet MS'; 
+	font-weight: normal; 
+	color:#ffffff; 
+	text-align: center;
+	line-height: 30px;
+}
+.glossary_word_letter span{
+	display: inline-block;
+	vertical-align: middle;
+	margin: 0 5px;
+	cursor: pointer;
+}
+.glossary_word_letter span.word_letter{
+	font-weight: bold;
+}
+
+.mCSB_container{
+	cursor: pointer;
+}
